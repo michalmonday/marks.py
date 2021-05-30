@@ -23,7 +23,7 @@ These libraries can be installed by executing the following command:
 `python3 -m pip install matplotlib numpy tk`  
 
 # Usage examples
-3 examples below show how to modify the `previous_marks` list/section of the [marks.py](./marks.py) code. All examples assume that the student achieved 70% from every assessment.  
+3 examples below show how to modify the `previous_marks` list/section of the [marks.py](./marks.py) code. All examples assume that the student achieved 70% from every past assessment.  
 
 ### Calculating module mark
 In example below it is assumed that the student completed 2 assessments so far, each being worth 20% of the whole module.  
