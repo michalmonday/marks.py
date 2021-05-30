@@ -6,10 +6,6 @@ It can be used to calculate:
 * year mark  
 * whole degree mark  
 
-# Example program output  
-
-![IMAGE DIDNT SHOW](./example.png)  
-
 # How to use it
 Supply marks achieved for past assessments by modifying `previous_marks` list in the [marks.py](./marks.py), and then run it with python. See [Usage examples](usage-examples) section.  
 
