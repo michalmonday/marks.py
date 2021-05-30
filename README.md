@@ -7,7 +7,7 @@ It can be used to calculate:
 * whole degree mark  
 
 # How to use it
-Supply marks achieved for past assessments by modifying `previous_marks` list in the [marks.py](./marks.py), and then run it with python. See [Usage examples](usage-examples) section.  
+Supply marks achieved for past assessments by modifying `previous_marks` list in the [marks.py](./marks.py), and then run it with python. See [Usage examples](usage-examples) section. To get numerical value at given point of the graph the user can put mouse cursor over specific point and observe bottom-right corner of the window (where x/y coordinates are displayed).  
 
 # Prerequisites
 Python 3.7 (or later) with the following libraries:  
@@ -36,6 +36,8 @@ previous_marks = [
 This example would result in the following output:  
 ![IMAGE DIDNT SHOW](./images/example_1.png)  
 
+The graph tells that even if the student received 100% in all remaining assessments, his mark end/total mark would be ~87%, if in all remaining assessments he got 30%, his end/total mark would be ~46%.  
+
 ### Calculating year mark
 In example below it is assumed that the student has 8 modules.  
 
@@ -53,6 +55,8 @@ previous_marks = [
     (70, M_WEIGHT * 0.15) # Assessment worth 15% of some unfinished module
     ]
 ```
+
+The graph tells that even if the student received 100% in all remaining assessments, his mark end/total mark would be ~91%, if in all remaining assessments he got 30%, his end/total mark would be ~41%.  
 
 This example would result in the following output:  
 ![IMAGE DIDNT SHOW](./images/example_2.png)  
@@ -88,5 +92,6 @@ previous_marks = [
 This example would result in the following output:  
 ![IMAGE DIDNT SHOW](./images/example_3.png)  
 
+The graph tells that even if the student received 100% in all remaining assessments, his mark end/total mark would be ~79%, if in all remaining assessments he got 30%, his end/total mark would be ~56%.  
 
 
