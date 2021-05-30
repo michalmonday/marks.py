@@ -28,8 +28,8 @@ In example below it is assumed that the student completed 2 assessments so far, 
 previous_marks = [
     # Format: (mark, weight)
 
-    (70, 20), 
-    (70, 20)
+    (70, 20), # e.g. first assignment/test
+    (70, 20)  # e.g. second assignment/test
     ]
 ```
 
@@ -45,12 +45,12 @@ previous_marks = [
     # Format: (mark, weight)
 
     # finished modules marks
-    (70, M_WEIGHT),
-    (70, M_WEIGHT),
+    (70, M_WEIGHT), # Whole finished module
+    (70, M_WEIGHT), # Another finished module
 
     # unfinished modules marks
-    (70, M_WEIGHT * 0.2),
-    (70, M_WEIGHT * 0.15)
+    (70, M_WEIGHT * 0.2), # Assessment worth 20% from some unfinished module
+    (70, M_WEIGHT * 0.15) # Assessment worth 15% from some unfinished module
     ]
 ```
 
@@ -59,7 +59,7 @@ This example would result in the following output:
 
 
 ### Calculating whole degree mark
-In example below it is assumed that second year of a degree was worth 40%, 3rd year was worth 60% and that there were 8 modules in the 3rd year.  
+In example below it is assumed that second year of a degree was worth 40%, 3rd year was worth 60% and that there were 8 modules in the 3rd year. It is also assumed that the 1st year doesn't count towards the overall degree mark.  
 
 ```python
 SECOND_YEAR_WEIGHT = 40
@@ -72,16 +72,16 @@ previous_marks = [
     (70,   SECOND_YEAR_WEIGHT), 
 
     # total module marks
-    (70,   M_WEIGHT),          # Some module final mark
-    (70,   M_WEIGHT),          # Another module final mark
-    (70,   M_WEIGHT),          # And another module final mark
+    (70,   M_WEIGHT),       # Some module final mark
+    (70,   M_WEIGHT),       # Another module final mark
+    (70,   M_WEIGHT),       # And another module final mark
 
     # module marks with some assessments unmarked yet
-    (70,  M_WEIGHT * 0.06),     # This assessment was worth 6% of some module.
-    (70,  M_WEIGHT * 0.12),     # This assessment was worth 12% of some module.
-    (70,  M_WEIGHT * 0.12),     # This assessment was worth 12% of some module.
-    (70,  M_WEIGHT * 0.1),      # This assessment was worth 10% of some module.
-    (70,  M_WEIGHT * 0.2),      # This assessment was worth 20% of some module.
+    (70,  M_WEIGHT * 0.06), # Assessment worth 6%  of some module.
+    (70,  M_WEIGHT * 0.12), # Assessment worth 12% of some module.
+    (70,  M_WEIGHT * 0.12), # Assessment worth 12% of some module.
+    (70,  M_WEIGHT * 0.1),  # Assessment worth 10% of some module.
+    (70,  M_WEIGHT * 0.2),  # Assessment worth 20% of some module.
     ] 
 ```
 
