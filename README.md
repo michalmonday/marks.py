@@ -22,7 +22,7 @@ These libraries can be installed by executing the following command:
 3 examples below show how to modify the `previous_marks` list/section of the [marks.py](./marks.py) code. All examples assume that the student achieved 70% from every past assessment.  
 
 ### Calculating module mark
-In example below it is assumed that the student completed 2 assessments so far, each being worth 20% of the whole module.  
+In example below it is assumed that the student completed 2 assessments so far, each being worth 20% of the whole module. Remaining 60% could be an exam or several smaller percentage assessments, it does not really matter.  
 
 ```python
 previous_marks = [
@@ -49,8 +49,8 @@ previous_marks = [
     (70, M_WEIGHT), # Another finished module
 
     # unfinished modules marks
-    (70, M_WEIGHT * 0.2), # Assessment worth 20% from some unfinished module
-    (70, M_WEIGHT * 0.15) # Assessment worth 15% from some unfinished module
+    (70, M_WEIGHT * 0.2), # Assessment worth 20% of some unfinished module
+    (70, M_WEIGHT * 0.15) # Assessment worth 15% of some unfinished module
     ]
 ```
 
@@ -77,11 +77,11 @@ previous_marks = [
     (70,   M_WEIGHT),       # And another module final mark
 
     # module marks with some assessments unmarked yet
-    (70,  M_WEIGHT * 0.06), # Assessment worth 6%  of some module.
-    (70,  M_WEIGHT * 0.12), # Assessment worth 12% of some module.
-    (70,  M_WEIGHT * 0.12), # Assessment worth 12% of some module.
-    (70,  M_WEIGHT * 0.1),  # Assessment worth 10% of some module.
-    (70,  M_WEIGHT * 0.2),  # Assessment worth 20% of some module.
+    (70,  M_WEIGHT * 0.06), # Assessment worth 6%  of some unfinished module
+    (70,  M_WEIGHT * 0.12), # Assessment worth 12% of some unfinished module
+    (70,  M_WEIGHT * 0.12), # Assessment worth 12% of some unfinished module
+    (70,  M_WEIGHT * 0.1),  # Assessment worth 10% of some unfinished module
+    (70,  M_WEIGHT * 0.2),  # Assessment worth 20% of some unfinished module
     ] 
 ```
 
