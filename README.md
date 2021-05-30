@@ -34,7 +34,7 @@ previous_marks = [
 ```
 
 This example would result in the following output:  
-![IMAGE DIDNT SHOW](./example_1.png)  
+![IMAGE DIDNT SHOW](./images/example_1.png)  
 
 ### Calculating year mark
 In example below it is assumed that the student has 8 modules.  
@@ -55,7 +55,7 @@ previous_marks = [
 ```
 
 This example would result in the following output:  
-![IMAGE DIDNT SHOW](./example_2.png)  
+![IMAGE DIDNT SHOW](./images/example_2.png)  
 
 
 ### Calculating whole degree mark
@@ -86,7 +86,7 @@ previous_marks = [
 ```
 
 This example would result in the following output:  
-![IMAGE DIDNT SHOW](./example_3.png)  
+![IMAGE DIDNT SHOW](./images/example_3.png)  
 
 
 
