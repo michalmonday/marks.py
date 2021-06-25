@@ -7,7 +7,9 @@ It can be used to calculate:
 * whole degree mark  
 
 # How to use it
-Supply marks achieved for past assessments by modifying `previous_marks` list in the [marks.py](./marks.py), and then run it with python. See [Usage examples](usage-examples) section. To get numerical value at given point of the graph the user can put mouse cursor over specific point and observe bottom-right corner of the window (where x/y coordinates are displayed).  
+Supply marks achieved for past assessments by modifying `previous_marks` list in the [marks.py](./marks.py), and then run it with python. See [Usage examples](usage-examples) section. Mouse can be used to check exact values at given horizontal position:  
+
+![IMAGE DIDNT_SHOW](./images/mouse_annotation.png)  
 
 # Prerequisites
 Python 3.7 (or later) with the following libraries:  

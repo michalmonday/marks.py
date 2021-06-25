@@ -10,7 +10,6 @@ matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 import numpy as np
 
-
 SECOND_YEAR_WEIGHT = 40
 M_WEIGHT = 60 / 8           # single module weight (in 3rd year)
 
@@ -51,28 +50,52 @@ def plot_stats(achieved, optimal):
     ax1.set_title(f'Previous assessments ({achieved:.1f}% out of {optimal:.1f}%)')
     achieved = int(achieved)
     optimal = int(optimal)
+
     ax1.set_xticks(range(0,101,10))
     ax1.set_xlim([0,100])
     ax1.set_ylim([0,1])
     ax1.tick_params(axis='y', left=False, labelleft=False, which='both')
-    ax1.fill_between(np.arange(0, achieved+1, 1), 0, 1, facecolor='g', alpha=1)
-    ax1.fill_between(np.arange(achieved, optimal+1, 1), 0, 1, facecolor='red', alpha=0.5)
-    ax1.fill_between(np.arange(optimal, 101, 1), 0, 1, facecolor='black', alpha=0.2)
-    ax2_min = 30
+    ax1.fill_between(np.arange(0, achieved+1, 1), 0, 1, facecolor='g', alpha=1, zorder=1)
+    ax1.fill_between(np.arange(achieved, optimal+1, 1), 0, 1, facecolor='red', alpha=0.5, zorder=1)
+    ax1.fill_between(np.arange(optimal, 101, 1), 0, 1, facecolor='black', alpha=0.2, zorder=1)
+
+    ax2_min = 0
     total_x = range(ax2_min,101,1)
     total_y = [calculate_total_mark(em, previous_marks) for em in total_x]
     ax2.set_yticks(range(0,101,10))
     ax2.set_ylim([0,100])
     ax2.set_xticks(range(ax2_min,101,10))
     ax2.set_xlim([ax2_min,100])
-    ax2.fill_between(total_x, total_y, 100, facecolor='red', alpha=0.5)
-    ax2.fill_between(total_x, 0, total_y, facecolor='green', alpha=1)
+    ax2.fill_between(total_x, total_y, 100, facecolor='red', alpha=0.5, zorder=1)
+    ax2.fill_between(total_x, 0, total_y, facecolor='green', alpha=1, zorder=1)
     lw = 3
     for line_y, clr in [(70,'cyan'), (60, 'yellow'), (50, 'orange'), (40, 'red')]:
         ax2.axhline(y=line_y, color=clr, linestyle='-', linewidth=lw)
     ax2.set_title("End mark prediction")
     ax2.set_ylabel("End mark")
     ax2.set_xlabel("Remaining assessments mark")
+    
+    def update_annotation(x, y):
+        if not hasattr(fig.canvas, 'renderer'): 
+            return
+        renderer = fig.canvas.renderer
+        annotation.set_text(f'if remaining_assesments == {x}:\nend_mark = {int(total_y[x])}')
+        annotation.xy = x, y
+        annotation.xyann = x, y + 10
+        annotation.update_positions(renderer)
+        annotation.set_horizontalalignment('center')
+        fig.canvas.draw()
+
+    def mouse_move(event):
+        if not (event.xdata or event.ydata):
+            return
+        x, y = int(event.xdata), int(event.ydata)
+        update_annotation(x, total_y[x])
+
+    annotation = ax2.annotate(' ', xy=(0,0), xytext=(0,0),
+            arrowprops=dict(facecolor='black', width=2, headwidth=6, headlength=6))
+
+    plt.connect('motion_notify_event', mouse_move)
     plt.subplots_adjust(hspace=0.5)
     plt.show()
 
